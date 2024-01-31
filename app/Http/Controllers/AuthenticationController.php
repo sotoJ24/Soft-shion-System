@@ -16,11 +16,6 @@ use App\Models\User;
 class AuthenticationController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except('logout');
-    // }
-
     public function index()
     {
         return view('loginView');
@@ -29,7 +24,6 @@ class AuthenticationController extends Controller
 
     public function login(Request $request)
     {
-        // if ($user && Crypt::decryptString($user->password) == $request['password']) {}
 
         if(Auth::attempt($request->only('user_name','password'))){
 

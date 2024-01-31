@@ -14,6 +14,7 @@ use Spatie\Permission\Models\Role;
 
 
 
+
 class UserController extends Controller
 {
 
@@ -119,6 +120,13 @@ class UserController extends Controller
         return view('editViewUser', compact('user', 'role_name'));
     }
 
+    public function editPassword(User $user)
+    {
+
+        return view('editViewUserPassword', compact('user'));
+    }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -134,20 +142,14 @@ class UserController extends Controller
 
             $user  = User::findOrFail($id);
 
-            $validateData =  Validator::make($request->only('name','user_name','password'),[
+            $validateData =  Validator::make($request->only('name','user_name'),[
                 'name' => 'required|string|max:100',
-                'user_name' => 'required|string|min:6|max:35|unique:users,user_name,' . $id,
-                'password' => 'required|string|min:5'
+                'user_name' => 'required|string|min:6|max:35|unique:users,user_name,' . $id
             ]);
-
-            // if($validateData->fails()){
-            //     return response()->json(['errors' => $validateData->errors()], 417);
-            // }
 
             $user->update([
                 'name' => $validateData->validated()['name'],
-                'user_name' => $validateData->validated()['user_name'],
-                'password' => Hash::make($request['password'])
+                'user_name' => $validateData->validated()['user_name']
             ]);
 
             if($id > 1){
@@ -164,6 +166,29 @@ class UserController extends Controller
             // return redirect()->back()->with('error', $e->getMessage());
         }
 
+    }
+
+
+    public function updatePasswordUser(Request $request, $id)
+    {
+        try {
+
+            $user  = User::findOrFail($id);
+
+            $validateData =  Validator::make($request->only('password'),[
+                'password' => 'required|string|min:5'
+            ]);
+
+            $user->update([
+                'password' => Hash::make($request['password'])
+            ]);
+
+            return redirect()->intended('manage/user')->with('success','Successfully Updated');
+
+        }catch (\Exception $e) {
+            return back()->with('fail',$e->getMessage());
+        
+        }
     }
 
     /**

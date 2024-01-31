@@ -16,8 +16,6 @@
             <input type="button" class="btn btn-outline-info" data-dismiss="modal" value="Cancel">
             <input  type="submit" class="btn btn-danger" value="Delete">
 
-           {{-- <a href="{{route('delete_user_route',$user->id)}}" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i>Delete</a> --}}
-
           </div>
         </form>
       </div>

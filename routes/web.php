@@ -45,6 +45,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/manage/create/user',[UserController::class, 'store'])->name('create_user_route');
     Route::delete('/delete/user/{id}',[UserController::class, 'destroy'])->name('delete_user_route');
     Route::post('/manage/user',[UserController::class, 'filter'])->name('user_filter_route')->middleware('can:user_manage_route');
+    Route::get('/update/user/password/{user}',[UserController::class, 'editPassword'])->name('edit_password_manage_route')->middleware('can:user_manage_route');
+    Route::put('/update/password_user/{id}',[UserController::class, 'updatePasswordUser'])->name('update_password_user_route')->middleware('can:user_manage_route');
 
     /*----------------------------------------------ARTICLES-----------------------------------*/
     Route::post('create/article',[ArticleController::class, 'store'])->name('store_articles_route');

@@ -78,7 +78,7 @@
                             @if ($user->id > 1)
                                 <a href="#deleteEmployeeModal{{$user->id}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             @endif
-
+                            <a href="{{route('edit_password_manage_route',$user->id)}}" class="password" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE8F4;</i></a>
                             <a href="{{route('edit_manage_route',$user->id)}}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 						</td>
 					</tr>
