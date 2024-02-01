@@ -158,24 +158,26 @@ class UserController extends Controller
     public function updatePasswordUser(Request $request, $id)
     {
         try {
+            $user = User::findOrFail($id);
 
-            $user  = User::findOrFail($id);
-
-            $validateData =  Validator::make($request->only('password'),[
-                'password' => 'required|string|min:5'
+            $validateData = Validator::make($request->only('password'), [
+                'password' => 'required|string|min:6', // Change max:5 to min:6
             ]);
+
+            if ($validateData->fails()) {
+                return back()->withErrors($validateData)->withInput();
+            }
 
             $user->update([
-                'password' => Hash::make($request['password'])
+                'password' => Hash::make($request['password']),
             ]);
 
-            return redirect()->intended('manage/user')->with('success','Successfully Updated');
-
-        }catch (\Exception $e) {
-            return back()->with('fail',$e->getMessage());
-
+            return redirect()->intended('manage/user')->with('success', 'Successfully Updated');
+        } catch (\Exception $e) {
+            return back()->with('fail', $e->getMessage());
         }
     }
+
 
     /**
      * Remove the specified resource from storage.
