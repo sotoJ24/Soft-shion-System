@@ -30,7 +30,7 @@
     <div class="col-md-4 col-md-offset-4" id="login">
         <section id="inner-wrapper" class="login">
             <article>
-                <form action="{{route('update_password_user_route',$user->id)}}" method="POST">
+                <form action="{{route('update_password_user_route',$user->id)}}" method="POST"> 
                     @if(Session::has('fail'))
                         <script>
                             toastr.options = {
