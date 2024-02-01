@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-
-
-
 class UserController extends Controller
 {
 
@@ -32,7 +29,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        // $roles = $users->getRoleNames();
         $roles = Role::all();
         return view('crudUsers', compact('users','roles'));
     }
@@ -47,16 +43,6 @@ class UserController extends Controller
         return view('crudUsers', compact('users'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -187,7 +173,7 @@ class UserController extends Controller
 
         }catch (\Exception $e) {
             return back()->with('fail',$e->getMessage());
-        
+
         }
     }
 
