@@ -31,7 +31,7 @@ class CategoryController extends Controller
         // $articulos = $categoria->articulos;
     }
 
-    public function filter(Request $request)
+    public function filter(Request $request) 
     {
         $search = $request->search;
         $categories = Category::where('id','LIKE','%'.$search.'%')
