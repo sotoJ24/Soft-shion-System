@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +18,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
+        // ->except('update','destroy')
     }
 
     /**
@@ -101,7 +101,7 @@ class UserController extends Controller
 
         $roles = Role::all();
 
-        return view('editViewUser', compact('user', 'roles'));
+        return view('editViewUser', compact('user', 'role_name'));
     }
 
     public function editPassword(User $user)
@@ -151,7 +151,6 @@ class UserController extends Controller
 
     public function updatePasswordUser(Request $request, $id)
     {
-<<<<<<< HEAD
         $user = User::findOrFail($id);
 
         $validateData = Validator::make($request->only('password'), [
@@ -160,26 +159,6 @@ class UserController extends Controller
 
         if ($validateData->fails()) {
                 return back()->with('fail',$validateData->errors());
-=======
-        try {
-            $user = User::findOrFail($id);
-
-            $validateData = Validator::make($request->only('password'), [
-                'password' => 'required|string|min:6', // Change max:5 to min:6
-            ]);
-
-            if ($validateData->fails()) {
-                return back()->withErrors($validateData)->withInput();
-            }
-
-            $user->update([
-                'password' => Hash::make($request['password']),
-            ]);
-
-            return redirect()->intended('manage/user')->with('success', 'Successfully Updated');
-        } catch (\Exception $e) {
-            return back()->with('fail', $e->getMessage());
->>>>>>> d15fef218630398d1f64e9192e7014506165c6de
         }
 
         $user->update([
@@ -206,6 +185,5 @@ class UserController extends Controller
         }
         return response()->json(['Error' => 'User not found'], 404);
 
-        // return redirect()->back();
     }
 }
