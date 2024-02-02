@@ -29,7 +29,7 @@ Route::get('/', function () {
     return view('index',compact('articles'));
 })->name('index_route')->middleware('guest');
 
-Route::get('/contact', function () {
+Route::get('/contact', function () { 
     return view('contact');
 })->name('contact_route');
 
