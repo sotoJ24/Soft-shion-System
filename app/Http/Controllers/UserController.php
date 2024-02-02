@@ -67,16 +67,12 @@ class UserController extends Controller
                 'password' => Hash::make($request['password'])
             ])->assignRole('user_system');
 
-            // 'password' => Hash::make($validateData->validated()['password'])
-
             $token = $user->createToken('auth_token')->plainTextToken;
             return redirect()->back();
 
         }
 
         return back()->with('fail',$validateData->errors());
-
-        // return response()->json(['errors' => $validateData->errors()], 422);
 
 
     }
@@ -100,10 +96,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $role = $user->roles->first();
-        $role_name = $role ? $role->name : null;
+        // $role = $user->roles->first();
+        // $role_name = $role ? $role->name : null;
 
-        return view('editViewUser', compact('user', 'role_name'));
+        $roles = Role::all();
+
+        return view('editViewUser', compact('user', 'roles'));
     }
 
     public function editPassword(User $user)
@@ -124,39 +122,45 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-        try {
+        $user  = User::findOrFail($id);
 
-            $user  = User::findOrFail($id);
-
-            $validateData =  Validator::make($request->only('name','user_name'),[
+        $validateData =  Validator::make($request->only('name','user_name'),[
                 'name' => 'required|string|max:100',
                 'user_name' => 'required|string|min:6|max:35|unique:users,user_name,' . $id
-            ]);
+        ]);
+
+        if(!$validateData->fails()){
 
             $user->update([
-                'name' => $validateData->validated()['name'],
-                'user_name' => $validateData->validated()['user_name']
+                    'name' => $validateData->validated()['name'],
+                    'user_name' => $validateData->validated()['user_name']
             ]);
 
             if($id > 1){
-                $roles = $request['roles'];
-                $role_id =  DB::table('roles')->where('name', $roles)->first();
-                $user->roles()->sync($role_id->id);
+                    $roles = $request['roles'];
+                    $role_id =  DB::table('roles')->where('name', $roles)->first();
+                    $user->roles()->sync($role_id->id);
             }
 
-
             return redirect()->intended('manage/user')->with('success','Successfully Updated');
-
-        }catch (\Exception $e) {
-            return back()->with('fail',$e->getMessage());
-            // return redirect()->back()->with('error', $e->getMessage());
         }
 
+        return back()->with('fail',$validateData->errors());
     }
 
 
     public function updatePasswordUser(Request $request, $id)
     {
+<<<<<<< HEAD
+        $user = User::findOrFail($id);
+
+        $validateData = Validator::make($request->only('password'), [
+                'password' => 'required|string|min:6'
+        ]);
+
+        if ($validateData->fails()) {
+                return back()->with('fail',$validateData->errors());
+=======
         try {
             $user = User::findOrFail($id);
 
@@ -175,7 +179,14 @@ class UserController extends Controller
             return redirect()->intended('manage/user')->with('success', 'Successfully Updated');
         } catch (\Exception $e) {
             return back()->with('fail', $e->getMessage());
+>>>>>>> d15fef218630398d1f64e9192e7014506165c6de
         }
+
+        $user->update([
+            'password' => Hash::make($request['password']),
+        ]);
+
+        return redirect()->intended('manage/user')->with('success', 'Successfully Updated');
     }
 
 
