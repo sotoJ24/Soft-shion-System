@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">   
-<head> 
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,13 +24,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="{{asset('resourcesEditUser/css/styles.css')}}">
-    <title>Update Password User</title>
+    <title>Update user</title>
 </head>
 <body>
     <div class="col-md-4 col-md-offset-4" id="login">
         <section id="inner-wrapper" class="login">
             <article>
-                <form action="{{route('update_password_user_route',$user->id)}}" method="POST">
+                <form action="{{route('update_manage_route',$user->id)}}" method="POST">
                     @if(Session::has('fail'))
                         <script>
                             toastr.options = {
@@ -43,25 +43,34 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label>Password</label>
-                        <span toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password" style="margin-left: 283px;" ></span>
+                        <label>Name</label>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
-
-                                <input type="password" name="password" class="form-control" id="pass_log_id" width="25%" required>
-                                <script>
-                                    $("body").on('click', '.toggle-password', function() {
-                                        $(this).toggleClass("fa-eye fa-eye-slash");
-                                        var input = $("#pass_log_id");
-                                        if (input.attr("type") === "password") {
-                                            input.attr("type", "text");
-                                        } else {
-                                            input.attr("type", "password");
-                                        }
-                                    });
-                                </script>
+                            <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                            <input type="text" value="{{$user->name}}" name="name" class="form-control" required >
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+                            <input type="user" value="{{$user->user_name}}" name="user_name" class="form-control" required>
+                        </div>
+                    </div>
+                    @if ($user->id > 1)
+                        <div class="form-group">
+                            <label>Rol User</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i style="margin-top: 35px" class="fa fa-cog"> </i></span >
+                                <select name="roles" id="roles" class="form-control" multiple data-style="btn-primary" required>
+                                    @foreach ($roles as $role)
+                                        <option >{{$role->name}}</option>
+                                    @endforeach
+                                </select>
+                                {{-- <input type="user" value="{{$role_name}}" name="roles" class="form-control" required>
+                            </div> --}}
+                        </div>
+                    @endif
+
                      <a class="btn btn-danger" href="{{route('user_manage_route')}}">Cancel</a>
                       <button type="submit" class="btn btn-success">Update</button>
                 </form>
