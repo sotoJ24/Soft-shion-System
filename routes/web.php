@@ -2,7 +2,7 @@
  
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserController; 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AdministrationController;
 use App\Http\Controllers\EmployeeController;
