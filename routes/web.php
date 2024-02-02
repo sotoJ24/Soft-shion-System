@@ -73,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('manage/customer',[CustomerController::class, 'filter'])->name('customer_filter_route');
 
     /*----------------------------------------------CATEGORIES-----------------------------------*/
-    Route::get('manage/categories', [CategoryController::class, 'index'])->name('category_route');
+    Route::get('manage/categories', [CategoryController::class, 'index'])->name('category_route'); 
     Route::post('create/categories', [CategoryController::class, 'store'])->name('store_category_route');
     Route::get('edit/categories/{category}', [CategoryController::class, 'edit'])->name('edit_category_route');
     Route::put('update/categories/{id}',[CategoryController::class, 'update'])->name('update_category_route');
