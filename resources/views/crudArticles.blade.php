@@ -38,7 +38,7 @@
                                 </button>
                             </div>
                         </form>
-
+ 
 						<a href="#addEmployeeModal" class="btn btn-success" style="height: 33px; margin-left: 114px;" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Article</span></a>
                         <form action="{{route('admin_route')}}" method="GET">
                             @csrf
