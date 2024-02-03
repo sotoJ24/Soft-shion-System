@@ -64,7 +64,7 @@
 						<th>Size</th>
                         <th>Description</th>
                         <th>Image</th>
-                        <th>Proveedor</th>
+                        <th>Proveedor</th> 
 					</tr>
 				</thead>
 				<tbody>
