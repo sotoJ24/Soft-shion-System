@@ -61,7 +61,7 @@
 						<th>Article Name</th>
 						<th>Article Price</th>
                         <th>Quantity</th>
-						<th>Size</th>
+						<th>Size</th> 
                         <th>Description</th>
                         <th>Image</th>
                         <th>Proveedor</th> 
