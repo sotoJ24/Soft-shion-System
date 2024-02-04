@@ -39,7 +39,7 @@
                     <div class="form-group">
 						<label>Article Code</label>
 						<input type="text" value="{{$article->article_code}}" class="form-control" name="article_code" required>
-					</div>
+					</div> 
 					<div class="form-group">
 						<label>Article Name</label>
 						<input type="text" class="form-control" value="{{$article->article_name}}" name="article_name" required>
