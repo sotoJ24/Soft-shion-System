@@ -75,7 +75,7 @@
                 </form>
 
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
+                    <div class="col">TOTAL PRICE</div> 
                     <div class="col text-right">&dollar; {{$total_price}}</div>
                 </div>
                 <form action="{{route('export_pdf_cart_route')}}" method="GET">
