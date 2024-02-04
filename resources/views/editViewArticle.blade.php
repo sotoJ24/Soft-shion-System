@@ -55,7 +55,7 @@
 					<div class="form-group">
 						<label>Price</label>
                         <input type="number" min="0" step="0.01" value="{{$article->article_price}}" class="form-control" name="article_price" required>
-					</div>
+					</div> 
                     <div class="form-group">
 						<label>Quantity</label>
                         <input type="number" min="0"  class="form-control" value="{{$article->quantity}}" name="quantity" required>
