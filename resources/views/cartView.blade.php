@@ -48,7 +48,7 @@
                             <div class="col">&dollar; {{$item['product_price']}}</div> {{--<a href="{{route('delete_by_id_cart_route',$item['product_id'])}}" class="close">&#10005;</a> --}}
                             <form action="{{route('delete_by_id_cart_route',$item['product_id'])}}" method="POST">
                                 @csrf
-                                @method('DELETE')
+                                @method('DELETE') 
                                 <button type="submit" class="btn-dark">x</button>
                                 {{-- <a type="submit" class="btn close">&#10005;</a> --}}
                             </form>
