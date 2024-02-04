@@ -16,17 +16,20 @@ class ArticleController extends Controller
         $this->middleware('auth');
     }
 
-    private function manageViewArticles($articles,$categories)
+    private function manageViewArticles($articles,$categories,$suppliers)
     {
 
-        return view('crudArticles', compact('articles','categories'));
+        return view('crudArticles', compact('articles','categories','suppliers'));
     }
 
-    private function getArticles()
+    private function getArticlesWithSupplier()
     {
+        return Article::with('supplier')->get();
+    }
 
-        return Article::all();
-
+    private function getSuppliers()
+    {
+        return Supplier::all();
     }
 
     private function getCategories()
@@ -41,20 +44,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-
-        $articles = Article::with('supplier')->get();
-
-        return $this->manageViewArticles($articles,$this->getCategories());
-        //$articulo = Articulo::find(1);
-        //$categorias = $articulo->categorias;
-
-        // $articles = Article::with('articleSupplier')->get();
+        return $this->manageViewArticles(
+                                         $this->getArticlesWithSupplier(),
+                                         $this->getCategories(),
+                                         $this->getSuppliers()
+                                        );
     }
 
-    private function getNameOfSupplier()
-    {
-        $articles = $this->getArticles();
-    }
 
     public function filter(Request $request)
     {
@@ -78,6 +74,13 @@ class ArticleController extends Controller
         //
     }
 
+    public function getSupplierId($supplier)
+    {
+        $id = Supplier::where('company_name', $supplier)->value('id');
+
+        return $id ?? 0;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -86,7 +89,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $supplier = Supplier::findOrFail($request['supplier_id']);
+
+        $supplier_id = $this->getSupplierId($request['suppliers']);
+
+        $supplier = Supplier::findOrFail($supplier_id);
+        $request['supplier_id'] = $supplier_id;
+
 
         $validateData =  Validator::make($request->all(),[
             'article_code' => 'required|string|unique:articles',
@@ -101,7 +109,6 @@ class ArticleController extends Controller
 
         $fileNameImage = time().$request->file('image')->getClientOriginalName();
         $path = $request->file('image')->storeAs('images', $fileNameImage, 'public');
-        // $request["image"] = '/storage/images'.$path;
 
         if(!$validateData->fails()){
             $article = Article::create([
@@ -112,7 +119,7 @@ class ArticleController extends Controller
                 'size' => $validateData->validated()['size'],
                 'description' => $validateData->validated()['description'],
                 'image' =>  $fileNameImage,
-                'supplier_id' => $validateData->validated()['supplier_id']
+                'supplier_id' => $supplier_id
             ]);
             $article->articlesCategory()->attach($request['categories']);
             return redirect()->back();
@@ -146,7 +153,8 @@ class ArticleController extends Controller
     {
 
         $categories = $this->getCategories();
-        return view('editViewArticle', compact('article','categories'));
+        $suppliers = $this->getSuppliers();
+        return view('editViewArticle', compact('article','categories','suppliers'));
     }
 
     /**
