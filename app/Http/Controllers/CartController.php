@@ -70,7 +70,7 @@ class CartController extends Controller
             }
         }
         else if($quantity < $product->quantity){ 
-            $cart[$productId] = [
+            $cart[$productId] = [ 
                 'product' => $product,
                 'quantity' => $quantity,
                 'product_id' => $product->id,
