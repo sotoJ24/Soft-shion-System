@@ -31,7 +31,7 @@ class AuthenticationController extends Controller
 
             return redirect()->intended('/administration');
         }
-        return redirect()->back()->with('fail','Invalid Credentials, Try Again');
+        return redirect()->back()->with('fail','Invalid Credentials, Try Again'); 
 
     }
 
