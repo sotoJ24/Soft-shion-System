@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
 
-class AuthenticationController extends Controller
+class AuthenticationController extends Controller 
 {
 
     public function index()
