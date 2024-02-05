@@ -24,7 +24,7 @@ class CustomerController extends Controller
     private function manageViewCustomers($customers)
     {
         return view('crudCustomers', compact('customers'));
-    }
+    } 
 
     public function index()
     {
