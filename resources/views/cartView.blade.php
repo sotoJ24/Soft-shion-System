@@ -54,7 +54,7 @@
                             </form>
 
                         </div>
-                    @endforeach
+                    @endforeach 
                 </div>
                 <div class="back-to-shop"><a class="btn-dark" href="{{route('index_route')}}">&leftarrow;<span class="text-white">Back to shop</span></div></a>
             </div>
