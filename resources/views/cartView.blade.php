@@ -72,7 +72,7 @@
                     @csrf
                     @method('DELETE')
                     <button class="btn-danger">Empty Cart</button>
-                </form>
+                </form> 
 
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col">TOTAL PRICE</div> 
