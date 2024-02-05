@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use PDF;
-
+ 
 class CartController extends Controller
 {
     /**
