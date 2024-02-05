@@ -39,7 +39,7 @@ class CartController extends Controller
             'cartItems'=>$cartItems
         ]);
 
-        return $pdf->download('cartInvoice.pdf');
+        return $pdf->download('cartInvoice.pdf'); 
     }
 
     /**
