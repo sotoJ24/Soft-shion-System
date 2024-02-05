@@ -61,7 +61,7 @@
             <div class="col-md-4 summary">
                 <div><h5><b>Summary</b></h5></div>
                 <hr>
-                <div class="row">
+                <div class="row"> 
                     <div class="col" style="padding-left:0;">ITEMS {{count($cartItems)}}</div>
                     {{-- <div class="col text-right">&euro; 132.00</div> --}}
                 </div>
