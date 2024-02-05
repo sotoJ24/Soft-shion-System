@@ -15,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $total_price = 0;
+        $total_price = 0; 
         $cartItems = session()->get('cart');
         return view('cartView', compact('cartItems','total_price'));
     }
