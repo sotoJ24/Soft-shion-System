@@ -43,7 +43,7 @@
 					<div class="form-group">
 						<label>Article Name</label>
 						<input type="text" class="form-control" value="{{$article->article_name}}" name="article_name" required>
-					</div>
+					</div> 
                     <div class="form-group">
                         <label for="categories">Categories</label>
                         <select name="categories[]" id="categories" class="form-control" multiple data-style="btn-primary" required>
