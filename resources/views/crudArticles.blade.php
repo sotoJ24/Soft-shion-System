@@ -59,7 +59,7 @@
 						<th>ID</th>
 						<th>Article Code</th>
 						<th>Article Name</th>
-						<th>Article Price</th>
+						<th>Article Price</th> 
                         <th>Quantity</th> 
 						<th>Size</th> 
                         <th>Description</th>
