@@ -75,7 +75,7 @@
 						<td>{{$article->article_name}}</td>
 						<td>{{$article->article_price}} $</td>
                         <td>{{$article->quantity}}</td>
-						<td>{{$article->size}}</td>
+						<td>{{$article->size}}</td> 
                         <td>{{$article->description}}</td> 
                         <td><img src="/storage/images/{{$article->image}}" width="80" height="80" class="img img-responsive"> </td>
                         <td>{{$article->supplier->company_name}}</td>
