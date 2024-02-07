@@ -63,7 +63,7 @@
 					<div class="form-group">
 						<label>Size</label>
 						<input type="text" class="form-control" name="size" value="{{$article->size}}" required>
-					</div> 
+					</div>  
                     <div class="form-group">
 						<label>Description</label>
                         <input type="text" class="form-control" value="{{$article->description}}" name="description" required>
