@@ -26,7 +26,7 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<h2>CRUD<b> Articles</b></h2>
-					</div>
+					</div> 
 
                         <form action="{{route('article_filter_route')}}" method="POST" >
                             @csrf 
