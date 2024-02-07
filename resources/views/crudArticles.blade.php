@@ -36,7 +36,7 @@
                                 <button style="margin-top: -33px; margin-right: -55px" type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>
                                 </button> 
-                            </div>
+                            </div> 
                         </form> 
  
 						<a href="#addEmployeeModal" class="btn btn-success" style="height: 33px; margin-left: 114px;" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Article</span></a>
