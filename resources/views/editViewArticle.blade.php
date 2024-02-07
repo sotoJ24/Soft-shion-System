@@ -79,7 +79,7 @@
                      <a class="btn btn-danger" href="{{route('article_route')}}">Cancel</a>
                       <button type="submit" class="btn btn-success">Update</button>
                 </form>
-            </article>
+            </article> 
 
         </section>
     </div>
