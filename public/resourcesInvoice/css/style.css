@@ -45,7 +45,7 @@ body{
 }
 
 .invoice-status {
-    text-align: center;
+    text-align: center; 
     padding: 1rem;
     background: #272e48;
     -webkit-border-radius: 4px;
