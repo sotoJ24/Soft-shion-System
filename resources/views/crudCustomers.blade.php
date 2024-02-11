@@ -30,7 +30,7 @@
 					</div> 
                         <form action="{{route('customer_filter_route')}}" method="POST" >
                             @if(Session::has('fail'))
-                                <script>
+                                <script> 
                                     toastr.options = {
                                         "progressBar" : true,
                                         "closeButton": true,
