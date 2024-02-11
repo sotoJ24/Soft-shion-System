@@ -43,7 +43,7 @@ body{
     padding: 4vh;
     color: rgb(65, 65, 65);
 }
-@media(max-width:767px){
+@media(max-width:767px){ 
     .summary{
     border-top-right-radius: unset;
     border-bottom-left-radius: 1rem;
