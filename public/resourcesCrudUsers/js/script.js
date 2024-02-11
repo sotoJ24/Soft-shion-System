@@ -6,7 +6,7 @@ $(document).ready(function(){
 	var checkbox = $('table tbody input[type="checkbox"]');
 	$("#selectAll").click(function(){
 		if(this.checked){
-			checkbox.each(function(){
+			checkbox.each(function(){ 
 				this.checked = true;
 			});
 		} else{
