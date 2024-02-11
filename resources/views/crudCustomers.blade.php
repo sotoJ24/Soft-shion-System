@@ -56,7 +56,7 @@
 				</div>
 			</div>
 			<table class="table table-striped table-hover">
-				<thead>
+				<thead> 
 					<tr>
 						<th>Customer Name</th>
 						<th>Customer LastName</th>
