@@ -64,7 +64,7 @@ body{
 .main{
     margin: 0;
     padding: 2vh 0;
-    width: 100%;
+    width: 100%; 
 }
 .col-2, .col{
     padding: 0 1vh;
