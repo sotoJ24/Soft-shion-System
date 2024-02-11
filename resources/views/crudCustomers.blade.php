@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<h2>CRUD<b> Customer</b></h2>
-					</div>
+					</div> 
                         <form action="{{route('customer_filter_route')}}" method="POST" >
                             @if(Session::has('fail'))
                                 <script>
