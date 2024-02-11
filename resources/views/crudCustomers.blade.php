@@ -38,7 +38,7 @@
                                     toastr.error("{{ Session::get('fail') }}",{timeout:17000});
                                 </script>
                             @endif
-                            @csrf
+                            @csrf 
                             <div class="form-search" style="margin-left: -115px">
                                 <input type="search" id="form1" class="form-control" name="search"/>
                                 <label class="form-label" for="form1">Search</label>
