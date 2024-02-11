@@ -15,7 +15,7 @@ $(document).ready(function(){
 			});
 		}
 	});
-	checkbox.click(function(){
+	checkbox.click(function(){ 
 		if(!this.checked){
 			$("#selectAll").prop("checked", false);
 		}
