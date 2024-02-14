@@ -89,7 +89,6 @@ class CartController extends Controller
         return redirect()->route('get_cart_route');
     }
 
-
     public function isValidQuantity($cart, $productId, $addOrSubtract, $quantity, $productQuantity) {
         $currentQuantity = $cart[$productId]['quantity'];
 
