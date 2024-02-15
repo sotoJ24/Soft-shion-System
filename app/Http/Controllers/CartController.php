@@ -114,6 +114,15 @@ class CartController extends Controller
         //
     }
 
+    
+    public function totalSum()
+    {
+        $cart = session()->get('cart');
+
+        return response()->json($cart[7]['quantity']);
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
