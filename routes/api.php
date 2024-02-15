@@ -39,8 +39,6 @@ Route::delete('delete/category/{id}',[CategoryController::class, 'destroy'])->na
 /*--------------------------------------------Cart---------------------------------------*/
 
 
-
-
 /*--------------------------------------------Customers---------------------------------------*/
 Route::get('customer',[CustomerController::class, 'index'])->name('get_customer_route');
 Route::post('create/customer',[CustomerController::class, 'store'])->name('store_customer_route');
