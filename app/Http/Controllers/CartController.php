@@ -117,7 +117,7 @@ class CartController extends Controller
     
     public function totalSum()
     {
-        $cart = session()->get('cart');
+        $cart = session()->get('cart'); 
 
         return response()->json($cart[7]['quantity']);
 
