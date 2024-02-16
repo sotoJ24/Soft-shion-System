@@ -92,7 +92,7 @@ class CartController extends Controller
 
     public function isValidQuantity($cart, $productId, $addOrSubtract, $quantity, $productQuantity) {
         $currentQuantity = $cart[$productId]['quantity'];
-
+        
         if (!(($currentQuantity <= 1 && $addOrSubtract == 0) ||
             ($currentQuantity >= $productQuantity && $addOrSubtract == 1)))
         {
