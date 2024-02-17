@@ -57,7 +57,6 @@ class CartController extends Controller
         $addOrSubtract = $request->input('addOrSubtract');
         $product = Article::findOrFail($productId);
 
-
         $cart = session()->get('cart', []);
 
         if (isset($cart[$productId]) && ($quantity < $product->quantity)) {
