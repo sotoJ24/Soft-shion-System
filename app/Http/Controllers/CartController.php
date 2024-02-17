@@ -101,7 +101,6 @@ class CartController extends Controller
         return false;
     }
 
-    
 
     /**
      * Display the specified resource.
