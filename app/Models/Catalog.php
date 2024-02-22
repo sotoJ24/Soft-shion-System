@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Supplier;
 
-class Article extends Model
+class Catalog extends Model
 {
     use HasFactory;
 
