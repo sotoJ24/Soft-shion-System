@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\Catalog;
 use App\Models\Category;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
-class ArticleController extends Controller
+class CatalogController extends Controller
 {
     public function __construct()
     {
@@ -24,7 +24,7 @@ class ArticleController extends Controller
 
     private function getArticlesWithSupplier()
     {
-        return Article::with('supplier')->get();
+        return Catalog::with('supplier')->get();
     }
 
     private function getSuppliers()
@@ -55,7 +55,7 @@ class ArticleController extends Controller
     public function filter(Request $request)
     {
         $search = $request->search;
-        $articles = Article::where('article_code','LIKE','%'.$search.'%')
+        $articles = Catalog::where('article_code','LIKE','%'.$search.'%')
                     ->orWhere('article_name','LIKE','%'.$search.'%')
                     ->orWhere('size','LIKE','%'.$search.'%')
                     ->get();
@@ -111,7 +111,7 @@ class ArticleController extends Controller
         $path = $request->file('image')->storeAs('images', $fileNameImage, 'public');
 
         if(!$validateData->fails()){
-            $article = Article::create([
+            $article = Catalog::create([
                 'article_code' => $validateData->validated()['article_code'],
                 'article_name' => $validateData->validated()['article_name'],
                 'article_price' => $validateData->validated()['article_price'],
@@ -135,10 +135,10 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Catalog  $catalog
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(Catalog $catalog)
     {
         //
     }
@@ -146,7 +146,7 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Catalog  $catalog
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
@@ -167,7 +167,13 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $article  = Article::findOrFail($id);
-        $supplier = Supplier::findOrFail($request['supplier_id']);
+
+        $supplier_id = $this->getSupplierId($request['suppliers']);
+
+        $supplier = Supplier::findOrFail($supplier_id);
+        $request['supplier_id'] = $supplier_id;
+
+
 
         $validateData =  Validator::make($request->all(),[
             'article_code' => 'required|string|unique:articles,article_code,'.$id,
@@ -196,7 +202,7 @@ class ArticleController extends Controller
             'size' => $validateData->validated()['size'],
             'description' => $validateData->validated()['description'],
             'image' => $fileNameImage,
-            'supplier_id' => $validateData->validated()['supplier_id']
+            'supplier_id' => $supplier_id
         ]);
 
         $article->articlesCategory()->sync($request['categories']);
@@ -212,7 +218,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $article = Article::find($id);
+        $article = Catalog::find($id);
         if($article){
             $article->delete();
             return redirect()->back();
