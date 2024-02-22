@@ -35,7 +35,7 @@
                                     @csrf
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
-
+                                    
                                     <button min="0" class="btn-dark" type="submit" name="addOrSubtract" value="0">-</button>
 
                                     <input type="number" readonly id="quantity"  min="1" value="{{ $item['quantity'] }}">
