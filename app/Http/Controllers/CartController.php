@@ -19,7 +19,7 @@ class CartController extends Controller
         $total_price = 0; 
         $cartItems = session()->get('cart');
         return view('cartView', compact('cartItems','total_price'));
-    } 
+    }
 
     /**
      * Show the form for creating a new resource.
