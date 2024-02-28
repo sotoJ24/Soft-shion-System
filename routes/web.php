@@ -10,7 +10,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 Use App\Http\Controllers\SupplierController;
-use App\Models\Article;
+use App\Models\Catalog;
 use Illuminate\Support\Facades\Auth;
 
 /*
