@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 Route::get('/contact', function () { 
     return view('contact');
-})->name('contact_route');
+})->name('contact_route'); 
 
 Route::middleware(['auth'])->group(function () {
     /*---------------------------------------------VIEWS-----------------------------------*/
