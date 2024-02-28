@@ -20,7 +20,7 @@
     <link href="{{asset('resourcesClothingStore/css/bootstrap.css')}}" rel="stylesheet" />
 
     <link href="{{asset('resourcesClothingStore/css/magnific-popup.css')}}" rel="stylesheet" />
-
+ 
     <link href="{{asset('resourcesClothingStore/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" />
 
     <link href="{{asset('resourcesClothingStore/css/owl.carousel.min.css')}}" rel="stylesheet" />
