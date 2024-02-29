@@ -35,8 +35,6 @@ class AuthenticationController extends Controller
 
     }
 
-
-
     public function logout(Request $request)
     {
         $request->session()->invalidate();
