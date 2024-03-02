@@ -25,7 +25,7 @@ class CategoryController extends Controller
     }
 
     public function index()
-    {
+    { 
         return $this->manageViewCategory(Category::all());
         // $categoria = Categoria::find(1);
         // $articulos = $categoria->articulos;
