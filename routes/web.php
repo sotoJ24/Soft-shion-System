@@ -36,7 +36,7 @@ Route::get('/contact', function () {
 Route::middleware(['auth'])->group(function () {
     /*---------------------------------------------VIEWS-----------------------------------*/
     Route::view('/administration', 'administration')->name('admin_route');
- 
+  
     /*----------------------------------------------USER-----------------------------------*/
     Route::get('/manage/user',[UserController::class, 'index'])->name('user_manage_route')->middleware('can:user_manage_route');
     Route::get('/edit/user/{user}',[UserController::class, 'edit'])->name('edit_manage_route')->middleware('can:user_manage_route');
