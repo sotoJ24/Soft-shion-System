@@ -19,3 +19,4 @@ class Person extends Model
                            'address',
                            'email'];
 }
+ 
