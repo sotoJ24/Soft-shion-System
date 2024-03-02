@@ -18,7 +18,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth');
     }
-
+ 
     private function manageViewCategory($categories)
     {
         return view('crudCategories', compact('categories'));
