@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\ArticleController;  
 use App\Http\Controllers\AdministrationController;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeController; 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
