@@ -43,7 +43,7 @@ class CatalogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         return $this->manageViewArticles(
                                          $this->getArticlesWithSupplier(),
                                          $this->getCategories(),
