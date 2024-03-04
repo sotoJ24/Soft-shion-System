@@ -8,7 +8,7 @@ use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-
+ 
 class CatalogController extends Controller
 {
     public function __construct()
