@@ -48,7 +48,7 @@ class CatalogController extends Controller
                                          $this->getArticlesWithSupplier(),
                                          $this->getCategories(),
                                          $this->getSuppliers()
-                                        );
+                                        ); 
     }
 
 
