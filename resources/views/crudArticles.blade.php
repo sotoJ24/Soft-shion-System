@@ -22,7 +22,7 @@
 <div class="container-xl">
 	<div class="table-responsive">
 		<div class="table-wrapper">
-			<div class="table-title">
+			<div class="table-title"> 
 				<div class="row">
 					<div class="col-sm-6">
 						<h2>CRUD<b> Articles</b></h2>
