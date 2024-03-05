@@ -13,7 +13,7 @@ class CatalogController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); 
     }
 
     private function manageViewArticles($articles,$categories,$suppliers)
