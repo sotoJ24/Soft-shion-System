@@ -32,7 +32,7 @@ class CatalogController extends Controller
         return Supplier::all();
     } 
 
-    private function getCategories()
+    private function getCategories() 
     {
         return Category::all();
     }
