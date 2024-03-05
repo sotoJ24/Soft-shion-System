@@ -21,7 +21,7 @@ class CatalogController extends Controller
 
         return view('crudArticles', compact('articles','categories','suppliers'));
     }
-
+ 
     private function getArticlesWithSupplier()
     {
         return Catalog::with('supplier')->get();
