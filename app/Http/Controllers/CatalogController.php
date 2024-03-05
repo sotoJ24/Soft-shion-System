@@ -49,7 +49,7 @@ class CatalogController extends Controller
                                          $this->getCategories(),
                                          $this->getSuppliers()
                                         ); 
-    }
+    } 
 
 
     public function filter(Request $request)
