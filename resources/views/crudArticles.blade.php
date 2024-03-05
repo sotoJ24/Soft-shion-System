@@ -67,7 +67,7 @@
                         <th>Proveedor</th> 
 					</tr>
 				</thead>
-				<tbody>
+				<tbody> 
                     @foreach ( $articles  as $article )
 					<tr>
 						<td>{{$article->id}}</td>
