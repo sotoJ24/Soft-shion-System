@@ -4,3 +4,4 @@
 // array.forEach(price => {
 //     console.log(price);
 // });
+ 
