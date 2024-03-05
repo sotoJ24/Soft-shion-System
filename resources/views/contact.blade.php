@@ -22,7 +22,7 @@
 	<meta property="og:description" content=""/>
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
+	<meta name="twitter:url" content="" /> 
 	<meta name="twitter:card" content="" />
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
