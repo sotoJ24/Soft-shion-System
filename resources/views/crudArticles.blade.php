@@ -24,7 +24,7 @@
 		<div class="table-wrapper">
 			<div class="table-title"> 
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-6"> 
 						<h2>CRUD<b> Articles</b></h2>
 					</div> 
 
