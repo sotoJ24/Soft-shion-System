@@ -27,7 +27,7 @@
 					<div class="col-sm-6"> 
 						<h2>CRUD<b> Articles</b></h2>
 					</div> 
-
+ 
                         <form action="{{route('article_filter_route')}}" method="POST" >
                             @csrf    
                             <div class="form-search" style="margin-left: -115px">
