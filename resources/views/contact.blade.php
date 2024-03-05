@@ -28,7 +28,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 
-	<!-- Animate.css -->
+	<!-- Animate.css --> 
 	{{-- <link rel="stylesheet" href="css/animate.css"> --}}
     <link href="{{asset('resourcesClothingStore/css/animate.css')}}" rel="stylesheet" />
 
