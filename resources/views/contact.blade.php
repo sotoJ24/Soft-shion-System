@@ -34,7 +34,7 @@
 
 
 	<!-- Icomoon Icon Fonts-->
-	{{-- <link rel="stylesheet" href="css/icomoon.css"> --}}
+	{{-- <link rel="stylesheet" href="css/icomoon.css"> --}} 
     <link href="{{asset('resourcesClothingStore/css/icomoon.css')}}" rel="stylesheet" />
 
 
