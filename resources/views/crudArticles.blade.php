@@ -35,7 +35,7 @@
                                 <label class="form-label" for="form1">Search</label>
                                 <button style="margin-top: -33px; margin-right: -55px" type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>
-                                </button> 
+                                </button>  
                             </div> 
                         </form> 
  
