@@ -24,7 +24,7 @@ class CatalogController extends Controller
  
     private function getArticlesWithSupplier()
     {
-        return Catalog::with('supplier')->get();
+        return Catalog::with('supplier')->get(); 
     }
 
     private function getSuppliers() 
