@@ -1,82 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <link rel="icon" href="{{asset('TriskeleIcon.png')}}">   
-    <title>Manage Articles</title>     
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{asset('TriskeleIcon.png')}}">
+    <title>Soft-Shion | ADMI Productos</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{asset('resourcesSections/css/styles.css')}}"> 
- 
+    <link rel="stylesheet" href="{{asset('resourcesSections/css/styles.css')}}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container-xl">
 	<div class="table-responsive">
-		<div class="table-wrapper"> 
-			<div class="table-title">  
+		<div class="table-wrapper">
+			<div class="table-title">
 				<div class="row">
-					<div class="col-sm-6"> 
-						<h2>CRUD<b> Articles</b></h2>
-					</div> 
- 
+					<div class="col-sm-6">
+						<h2>Gestión  de<b> Productos</b></h2>
+					</div>
+
                         <form action="{{route('article_filter_route')}}" method="POST" >
-                            @csrf    
+                            @csrf
                             <div class="form-search" style="margin-left: -115px">
                                 <input type="search" id="form1" class="form-control" name="search"/>
-                                <label class="form-label" for="form1">Search</label>
+                                <label class="form-label" for="form1">Buscar</label>
                                 <button style="margin-top: -33px; margin-right: -55px" type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>
-                                </button>  
-                            </div> 
-                        </form>  
- 
-						<a href="#addEmployeeModal" class="btn btn-success" style="height: 33px; margin-left: 114px;" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Article</span></a>
+                                </button>
+                            </div>
+                        </form>
+
+						<a href="#addEmployeeModal" class="btn btn-success" style="height: 33px; margin-left: 114px;" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ingresar Producto</span></a>
                         <form action="{{route('admin_route')}}" method="GET">
-                            @csrf  
-                            <button  class="btn btn-primary" data-toggle="modal" ><i class="material-icons">↺</i>Back </button>
-                        </form> 
+                            @csrf
+                            <button  class="btn btn-primary" data-toggle="modal" ><i class="material-icons">↺</i>Volver </button>
+                        </form>
 
 				</div>
 			</div>
-			<table class="table table-striped table-hover"> 
+			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						{{-- <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th> --}}
 						<th>ID</th>
-						<th>Article Code</th>
-						<th>Article Name</th>
-						<th>Article Price</th> 
-                        <th>Quantity</th> 
-						<th>Size</th> 
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Proveedor</th> 
+						<th>Código Producto</th>
+						<th>Nombre Producto</th>
+						<th>Precio Producto</th>
+                        <th>Cantidad</th>
+						<th>Talla</th>
+                        <th>Descripción</th>
+                        <th>Imagen</th>
+                        <th>Proveedor</th>
 					</tr>
 				</thead>
-				<tbody> 
+				<tbody>
                     @foreach ( $articles  as $article )
 					<tr>
 						<td>{{$article->id}}</td>
-						<td>{{$article->article_code}}</td>
-						<td>{{$article->article_name}}</td>
-						<td>{{$article->article_price}} $</td>
+						<td>{{$article->product_code}}</td>
+						<td>{{$article->product_name}}</td>
+						<td>{{$article->product_price}} $</td>
                         <td>{{$article->quantity}}</td>
-						<td>{{$article->size}}</td> 
-                        <td>{{$article->description}}</td> 
+						<td>{{$article->size}}</td>
+                        <td>{{$article->description}}</td>
                         <td><img src="/storage/images/{{$article->image}}" width="80" height="80" class="img img-responsive"> </td>
                         <td>{{$article->supplier->company_name}}</td>
                         <td>
@@ -120,20 +114,20 @@
                 @endif
                 @csrf
                 <div class="modal-header">
-					<h4 class="modal-title">Add Article</h4>
+					<h4 class="modal-title">Ingresar Producto </h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>Article Code</label>
-						<input type="text" class="form-control" name="article_code" required>
+						<label>Código producto </label>
+						<input type="text" class="form-control" name="product_code" required>
 					</div>
 					<div class="form-group">
-						<label>Article Name</label>
-						<input type="text" class="form-control" name="article_name" required>
+						<label>Nombre del producto</label>
+						<input type="text" class="form-control" name="product_name" required>
 					</div>
                     <div class="form-group">
-                        <label for="categories">Categories</label>
+                        <label for="categories">Categorías</label>
                         <select name="categories[]" id="categories" class="form-control" multiple data-style="btn-primary" required>
                             @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
@@ -141,28 +135,32 @@
                         </select>
 					</div>
 					<div class="form-group">
-						<label>Price</label>
-                        <input type="number" min="0" step="0.01" class="form-control" name="article_price" required>
+						<label>Precio</label>
+                        <input type="number" min="0" step="0.01" class="form-control" name="product_price" required>
 					</div>
                     <div class="form-group">
-						<label>Quantity</label>
+						<label>Cantidad</label>
                         <input type="number" min="0"  class="form-control" name="quantity" required>
 					</div>
 					<div class="form-group">
-						<label>Size</label>
+						<label>Talla</label>
 						<input type="text" class="form-control" name="size" required>
 					</div>
                     <div class="form-group">
-						<label>Description</label>
+						<label>Descripción</label>
                         <input type="text" class="form-control" name="description" required>
 					</div>
                     <div class="form-group">
-						<label>Image</label>
+						<label>Imagen</label>
                         <input type="file" class="form-control-file" name="image" accept="image/*" required>
 					</div>
                     <div class="form-group">
-						<label>Supplier</label>
-                        <input type="number" min="0"  class="form-control" name="supplier_id" required>
+						<label>Seleccionar Proveedor</label>
+                        <select name="suppliers" id="suppliers" class="form-control" multiple data-style="btn-primary" required>
+                            @foreach ($suppliers as $supplier)
+                                <option >{{$supplier->company_name}}</option>
+                            @endforeach
+                        </select>
 					</div>
 				</div>
 				<div class="modal-footer">
