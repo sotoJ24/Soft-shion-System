@@ -36,7 +36,7 @@ class CatalogController extends Controller
     {
         return Category::all();
     }
-
+ 
     /** 
      * Display a listing of the resource.
      *
