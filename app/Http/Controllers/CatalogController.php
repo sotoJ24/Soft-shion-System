@@ -17,7 +17,7 @@ class CatalogController extends Controller
     }
 
     private function manageViewArticles($articles,$categories,$suppliers)
-    { 
+    {  
 
         return view('crudArticles', compact('articles','categories','suppliers'));
     }
