@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id(); 
             $table->string('name')->max(100);
             $table->string('user_name')->min(6)->max(35)->unique();
-            $table->timestamp('user_name_verified_at')->nullable();
+            $table->timestamp('user_name_verified_at')->nullable(); 
             $table->string('password')->min(5);
             $table->rememberToken();
             $table->timestamps();
