@@ -1,15 +1,16 @@
 <?php
- 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\UserController; 
-use App\Http\Controllers\ArticleController;  
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AdministrationController;
-use App\Http\Controllers\EmployeeController; 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 Use App\Http\Controllers\SupplierController;
+Use App\Http\Controllers\CatalogController;
 use App\Models\Catalog;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,21 +23,23 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/ 
+*/
 
 Route::get('/', function () {
-    $articles = Article::all();
+    //  $articles = Catalog::all();
+$articles = 0;
+    // return view('index',compact('articles'));
     return view('index',compact('articles'));
 })->name('index_route')->middleware('guest');
 
-Route::get('/contact', function () { 
+Route::get('/contact', function () {
     return view('contact');
-})->name('contact_route'); 
-  
+})->name('contact_route');
+
 Route::middleware(['auth'])->group(function () {
     /*---------------------------------------------VIEWS-----------------------------------*/
     Route::view('/administration', 'administration')->name('admin_route');
-  
+
     /*----------------------------------------------USER-----------------------------------*/
     Route::get('/manage/user',[UserController::class, 'index'])->name('user_manage_route')->middleware('can:user_manage_route');
     Route::get('/edit/user/{user}',[UserController::class, 'edit'])->name('edit_manage_route')->middleware('can:user_manage_route');
@@ -48,13 +51,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/update/user/password/{user}',[UserController::class, 'editPassword'])->name('edit_password_manage_route')->middleware('can:user_manage_route');
     Route::put('/update/password_user/{id}',[UserController::class, 'updatePasswordUser'])->name('update_password_user_route')->middleware('can:user_manage_route');
 
-    /*----------------------------------------------ARTICLES-----------------------------------*/
-    Route::post('create/article',[ArticleController::class, 'store'])->name('store_articles_route');
-    Route::get('/manage/articles', [ArticleController::class, 'index'])->name('article_route');
-    Route::put('/update/article/{id}', [ArticleController::class, 'update'])->name('update_article_route');
-    Route::get('/edit/article/{article}',[ArticleController::class, 'edit'])->name('edit_article_route');
-    Route::delete('delete/article/{id}',[ArticleController::class, 'destroy'])->name('delete_article_route');
-    Route::post('/manage/articles',[ArticleController::class, 'filter'])->name('article_filter_route');
+    /*----------------------------------------------PRODUCTS-----------------------------------*/
+    Route::post('create/catalog',[CatalogController::class, 'store'])->name('store_articles_route');
+    Route::get('/manage/catalog', [CatalogController::class, 'index'])->name('article_route');
+    Route::put('/update/catalog/{id}', [CatalogController::class, 'update'])->name('update_article_route');
+    Route::get('/edit/catalog/{catalog}',[CatalogController::class, 'edit'])->name('edit_article_route');
+    Route::delete('delete/catalog/{id}',[CatalogController::class, 'destroy'])->name('delete_article_route');
+    Route::post('/manage/catalog',[CatalogController::class, 'filter'])->name('article_filter_route');
 
     /*----------------------------------------------EMPLOYEE-----------------------------------*/
     Route::get('/manage/employees', [EmployeeController::class, 'index'])->name('employee_route');
@@ -73,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('manage/customer',[CustomerController::class, 'filter'])->name('customer_filter_route');
 
     /*----------------------------------------------CATEGORIES-----------------------------------*/
-    Route::get('manage/categories', [CategoryController::class, 'index'])->name('category_route'); 
+    Route::get('manage/categories', [CategoryController::class, 'index'])->name('category_route');
     Route::post('create/categories', [CategoryController::class, 'store'])->name('store_category_route');
     Route::get('edit/categories/{category}', [CategoryController::class, 'edit'])->name('edit_category_route');
     Route::put('update/categories/{id}',[CategoryController::class, 'update'])->name('update_category_route');
