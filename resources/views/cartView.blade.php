@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="row border-top border-bottom">
-                    @foreach ($cartItems as $item)
+                    @foreach ($cartItems as $item) 
                         <input type="hidden" name="addOrSubtract" value={{$total_price += $item['product_price']}}checked>
                         <div class="row main align-items-center">
                             <img src="/storage/images/{{$item['product_image']}}" alt="Image" class="img img-responsive">
