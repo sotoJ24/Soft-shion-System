@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id(); 
             $table->string('name')->max(100);
-            $table->string('user_name')->min(6)->max(35)->unique();
+            $table->string('user_name')->min(6)->max(35)->unique(); 
             $table->timestamp('user_name_verified_at')->nullable(); 
             $table->string('password')->min(5);
             $table->rememberToken();
