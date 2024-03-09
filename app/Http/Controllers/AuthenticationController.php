@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
 
         if(Auth::attempt($request->only('user_name','password'))){
 
-            $user = User::where('user_name', $request['user_name'])->first();
+            $user = User::where('user_name', $request['user_name'])->first(); 
 
             $token = $user->createToken('auth_token')->plainTextToken;
 
