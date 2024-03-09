@@ -20,7 +20,7 @@ class AuthenticationController extends Controller
     }
 
 
-    public function login(Request $request)
+    public function login(Request $request) 
     {
 
         if(Auth::attempt($request->only('user_name','password'))){
