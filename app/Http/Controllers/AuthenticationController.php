@@ -27,7 +27,7 @@ class AuthenticationController extends Controller
 
             $user = User::where('user_name', $request['user_name'])->first(); 
 
-            $token = $user->createToken('auth_token')->plainTextToken;
+            $token = $user->createToken('auth_token')->plainTextToken; 
 
             return redirect()->intended('/administration');
         }
