@@ -43,7 +43,7 @@
                         <form action="{{route('admin_route')}}" method="GET">
                             @csrf
                             <button  class="btn btn-primary" data-toggle="modal" ><i class="material-icons">↺</i>Back </button>
-                        </form>
+                        </form> 
 				</div>
 			</div>
 			<table class="table table-striped table-hover">
