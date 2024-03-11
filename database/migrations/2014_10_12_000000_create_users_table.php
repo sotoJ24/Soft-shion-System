@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('user_name_verified_at')->nullable(); 
             $table->string('password')->min(5);
             $table->rememberToken(); 
-            $table->timestamps(); 
+            $table->timestamps();  
         });
     }
 
