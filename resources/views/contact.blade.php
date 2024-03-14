@@ -54,7 +54,7 @@
 
 
 	<!-- Bootstrap DateTimePicker -->
-	{{-- <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> --}}
+	{{-- <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"> --}} 
     <link href="{{asset('resourcesClothingStore/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" />
 
 
