@@ -48,7 +48,7 @@
     <link href="{{asset('resourcesClothingStore/css/bootstrap.css')}}" rel="stylesheet" /> 
 
 
-	<!-- Magnific Popup -->
+	<!-- Magnific Popup --> 
 	{{-- <link rel="stylesheet" href="css/magnific-popup.css"> --}} 
     <link href="{{asset('resourcesClothingStore/css/magnific-popup.css')}}" rel="stylesheet" />
 
