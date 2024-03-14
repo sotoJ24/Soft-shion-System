@@ -34,7 +34,7 @@ class AuthenticationController extends Controller
         return redirect()->back()->with('fail','Invalid Credentials, Try Again');  
 
     }
-  
+   
     public function logout(Request $request)
     { 
         $request->session()->invalidate();
