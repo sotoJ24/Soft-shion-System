@@ -63,7 +63,7 @@
 	{{-- <link rel="stylesheet" href="css/owl.carousel.min.css"> --}}
     <link href="{{asset('resourcesClothingStore/css/owl.carousel.min.css')}}" rel="stylesheet" />
 
-	{{-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> --}}
+	{{-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> --}} 
     <link href="{{asset('resourcesClothingStore/css/owl.theme.default.min.css')}}" rel="stylesheet" />
 
 
