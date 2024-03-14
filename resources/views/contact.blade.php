@@ -39,7 +39,7 @@
 
 
 	<!-- Themify Icons-->
-	{{-- <link rel="stylesheet" href="css/themify-icons.css"> --}}
+	{{-- <link rel="stylesheet" href="css/themify-icons.css"> --}} 
     <link href="{{asset('resourcesClothingStore/css/themify-icons.css')}}" rel="stylesheet" />
 
 
