@@ -45,7 +45,7 @@
 
 	<!-- Bootstrap  -->
 	{{-- <link rel="stylesheet" href="css/bootstrap.css"> --}} 
-    <link href="{{asset('resourcesClothingStore/css/bootstrap.css')}}" rel="stylesheet" />
+    <link href="{{asset('resourcesClothingStore/css/bootstrap.css')}}" rel="stylesheet" /> 
 
 
 	<!-- Magnific Popup -->
