@@ -29,7 +29,7 @@ class AuthenticationController extends Controller
 
             $token = $user->createToken('auth_token')->plainTextToken; 
 
-            return redirect()->intended('/administration');
+            return redirect()->intended('/administration'); 
         }
         return redirect()->back()->with('fail','Invalid Credentials, Try Again');  
 
