@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
             'name' => 'Root',
             'user_name' => 'rootSaDa01',
             'password' =>  Hash::make('1960+2013')
-
         ])->assignRole('admin');
 
 
